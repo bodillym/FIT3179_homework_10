@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+</head>
+<body>
+  
+<h1 style = "background-color:LemonChiffon;text-align:center;">Skin Cancer Prevalence in Australia</h1>
+  
+<h2>This is the first visualisation</h2>
+<div id="vis1"></div>
+
+<h2>This is the second visualisation</h2>
+<div id="vis2"></div>
+
+<script type="text/javascript">
+  var specVis1 = "https://bodillym.github.io/FIT3179_assignment_2/TestBarChart.json";
+  var specVis2= "https://bodillym.github.io/FIT3179_homework_10/LineChart.json";
+
+  vegaEmbed('#vis1', specVis1).then(function(result) {
+  }).catch(console.error);
+  
+   vegaEmbed('#vis2', specVis2).then(function(result) {
+  }).catch(console.error);
+</script>
+</body>
+</html>
