@@ -28,9 +28,9 @@
   ],
   "encoding": {
     "x": {
+      "aggregate": "average",
       "field": "Survival (%)",
       "type": "quantitative",
-      "aggregate": "average",
       "title": "Survival Rate (%)"
     },
     "y": {
@@ -46,10 +46,8 @@
     }
   },
   "layer": [
-    {
-      "mark": "line",
-      "encoding": {
-        "detail": {
+ {"mark": "line",
+      "encoding": {"detail": {
           "field": "RD-stage",
           "type": "nominal"
         },
@@ -72,7 +70,10 @@
           "title": "Year"
         },
         "size": {"value": 100},
-        "opacity": {"value": 1}
+        "opacity": {"value": 1},
+            "tooltip": [{"field": "Years after diagnosis", "type": "quantitative"},
+      {"aggregate": "average", "field": "Survival (%)", "title": "Survival Rate (%)"}
+    ]
       }
     }
   ]
