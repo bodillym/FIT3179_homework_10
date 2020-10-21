@@ -1,0 +1,79 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {"url": "https://bodillym.github.io/FIT3179_homework_10/Melanoma_survival.csv"},
+   "params" : [{"name": "Gender",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Males",
+          "Females"
+        ],
+        "labels":[
+          "Show All",
+          "Male",
+          "Female"
+        ],
+        "name": "Gender: "
+      }
+    }
+  ],
+  "transform": [{"filter": "Gender == null || datum.Sex == Gender"},
+    {
+      "filter": {
+        "field": "Years after diagnosis",
+        "oneOf": [1, 5]
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Survival (%)",
+      "type": "quantitative",
+      "aggregate": "average",
+      "title": "Survival Rate (%)"
+    },
+    "y": {
+      "field": "RD-stage",
+      "type": "nominal",
+      "title": "Stage",
+      "axis": {
+        "offset": 5,
+        "ticks": false,
+        "minExtent": 70,
+        "domain": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "detail": {
+          "field": "RD-stage",
+          "type": "nominal"
+        },
+        "color": {"value": "#db646f"}
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true
+      },
+      "encoding": {
+        "color": {
+          "field": "Years after diagnosis",
+          "type": "ordinal",
+          "scale": {
+            "domain": [1, 5],
+            "range": ["#e6959c", "#911a24"]
+          },
+          "title": "Year"
+        },
+        "size": {"value": 100},
+        "opacity": {"value": 1}
+      }
+    }
+  ]
+}
