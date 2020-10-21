@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "Practice Area Chart",
+  "data": {"url": "https://bodillym.github.io/FIT3179_assignment_2/Melanoma_total_cancer.csv"},
+  "title": "Total Number of Diagnoses Since 1982",
+  "mark": {
+    "type": "area",
+    "line": {
+      "color": "darkred"
+    },
+    "color": {
+      "x1": 1,
+      "y1": 1,
+      "x2": 1,
+      "y2": 0,
+      "gradient": "linear",
+      "stops": [
+        {
+          "offset": 0,
+          "color": "white"
+        },
+        {
+          "offset": 1,
+          "color": "darkred"
+        }
+      ]
+    }
+  },
+  "encoding": {
+    "x": {
+      "timeUnit": "year", "field": "Year", "title": "Year"
+    },
+    "y": {
+      "aggregate": "sum", "field": "Count", "title": "Number of Diagnoses"
+    },
+    "tooltip": [{"timeUnit": "year", "field": "Year", "title": "Year"},
+      {"aggregate": "sum", "field": "Count", "title": "Number of Diagnoses"}
+    ]
+  }
+}
